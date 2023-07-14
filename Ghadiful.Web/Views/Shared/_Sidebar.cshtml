@@ -1,0 +1,179 @@
+﻿<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" style="position:fixed; left:0; top:0; height:100vh;">
+    <div class="app-brand demo">
+        <a href="/dashboard" class="app-brand-link">
+            <span class="app-brand-logo demo">
+                <img src="~/ghadiful.png" style="width:128px;margin-top:10px" />
+            </span>
+            @* <span class="app-brand-text demo menu-text fw-bolder ms-2">Ghadiful</span>*@
+        </a>
+
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+        </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner pb-1 pt-3" style="margin-bottom:50px;">
+        <!-- Dashboard -->
+        <li class="menu-item active">
+            <a href="~/" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Dashboard</div>
+            </a>
+        </li>
+        <!-- Notice Board -->
+        <li class="menu-item d-none">
+            <a href="~/NoticeBoard" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Notice Board">Notice Board</div>
+            </a>
+        </li>
+        <!-- Approval -->
+        <li class="menu-item d-none">
+            <a href="~/Approval" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Approval">Approval</div>
+            </a>
+        </li>
+
+
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Work days</span>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Schedule">Schedule</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="/schedule" class="menu-link">
+                        <div data-i18n="Routine">Routine</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/overtime" class="menu-link">
+                        <div data-i18n="Overtime">Overtime</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/shift" class="menu-link">
+                        <div data-i18n="Shift">Shift</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- Off site Check-in -->
+        <li class="menu-item">
+            <a href="~/checkin/offsite" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Off site">Off site</div>
+            </a>
+        </li>
+        <!-- Manual Check-in -->
+        <li class="menu-item">
+            <a href="~/checkin/manual" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Manual Check-in">Manual Check-in</div>
+            </a>
+        </li>
+        <!-- Off days -->
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Off days</span></li>
+        <!-- Holiday -->
+        <li class="menu-item">
+            <a href="/holiday" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Holiday">Holiday</div>
+            </a>
+        </li>
+        <!-- Leave -->
+        <li class="menu-item">
+            <a href="javascript:void(0)" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="Leave">Leave</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="/leave/request" class="menu-link">
+                        <div data-i18n="Request">Request</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/leave/earning" class="menu-link">
+                        <div data-i18n="Earning">Earning</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/leave/closing" class="menu-link">
+                        <div data-i18n="Badges">Year Closing</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- Reports & Analytics-->
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">Reports &amp; Analytics</span></li>
+
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Reports">Reports</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="/report/checkin" class="menu-link">
+                        <div data-i18n="Check In Report">Check In Report</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/report/overtime" class="menu-link">
+                        <div data-i18n="Overtime Report">Overtime Report</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/report/payroll" class="menu-link">
+                        <div data-i18n="Payroll Report">Payroll Report</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="/report/biometriclog" class="menu-link">
+                        <div data-i18n="Biometric Log">Biometric Log</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Layouts">Analytics</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="form-layouts-vertical.html" class="menu-link">
+                        <div data-i18n="Absentees">Absentees</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="form-layouts-horizontal.html" class="menu-link">
+                        <div data-i18n="Off site Check-ins">Off site Check-ins</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+
+        <!-- Settings -->
+
+
+    </ul>
+    <a style="border-radius:6px; border:1px solid #696cff; padding:0.2rem; display:flex; justify-content:center; position:absolute;     left: 5%;
+    bottom: 0.5rem; align-items:center;  gap:6px;
+    width: 90%;" href="/settings"
+       target="_blank">
+        <span class="material-symbols-outlined" style="font-size:16px;">
+            settings
+        </span> Settings
+    </a>
+</aside>

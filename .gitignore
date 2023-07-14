@@ -1,0 +1,16 @@
+
+*.v2
+*.dll
+*.pdb
+*.suo
+*.user
+_ReSharper.*
+bin
+obj
+packages
+properties
+*.lock
+*.vsidx
+*.DS_STORE
+.vs
+*.yml

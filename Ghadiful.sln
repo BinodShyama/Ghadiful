@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghadiful.Web", "Ghadiful.Web\Ghadiful.Web.csproj", "{66EAAAF0-8611-4FEF-A4DE-19B263FE4460}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghadiful.Application", "Ghadiful.Application\Ghadiful.Application.csproj", "{193C7A7D-F617-4815-B2F5-99EEDF074143}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghadiful.WebApi", "Ghadiful.WebApi\Ghadiful.WebApi.csproj", "{42F48EE2-DF2A-4CD3-8BCB-2EB20AD0F7B1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghadiful.Core", "Ghadiful.Core\Ghadiful.Core.csproj", "{88A0455D-19EE-4BA7-AB5E-F991B05D53BD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghadiful.ViewModel", "Ghadiful.ViewModel\Ghadiful.ViewModel.csproj", "{E007FE34-4956-4D45-A556-B7D7335AE4EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ghadiful.DataAccess", "Ghadiful.DataAccess\Ghadiful.DataAccess.csproj", "{59CBCC0A-88F8-4438-AAA7-0E49D5E0926E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66EAAAF0-8611-4FEF-A4DE-19B263FE4460}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66EAAAF0-8611-4FEF-A4DE-19B263FE4460}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66EAAAF0-8611-4FEF-A4DE-19B263FE4460}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66EAAAF0-8611-4FEF-A4DE-19B263FE4460}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193C7A7D-F617-4815-B2F5-99EEDF074143}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193C7A7D-F617-4815-B2F5-99EEDF074143}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193C7A7D-F617-4815-B2F5-99EEDF074143}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193C7A7D-F617-4815-B2F5-99EEDF074143}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F48EE2-DF2A-4CD3-8BCB-2EB20AD0F7B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F48EE2-DF2A-4CD3-8BCB-2EB20AD0F7B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F48EE2-DF2A-4CD3-8BCB-2EB20AD0F7B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F48EE2-DF2A-4CD3-8BCB-2EB20AD0F7B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88A0455D-19EE-4BA7-AB5E-F991B05D53BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88A0455D-19EE-4BA7-AB5E-F991B05D53BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88A0455D-19EE-4BA7-AB5E-F991B05D53BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88A0455D-19EE-4BA7-AB5E-F991B05D53BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E007FE34-4956-4D45-A556-B7D7335AE4EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E007FE34-4956-4D45-A556-B7D7335AE4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E007FE34-4956-4D45-A556-B7D7335AE4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E007FE34-4956-4D45-A556-B7D7335AE4EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59CBCC0A-88F8-4438-AAA7-0E49D5E0926E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59CBCC0A-88F8-4438-AAA7-0E49D5E0926E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59CBCC0A-88F8-4438-AAA7-0E49D5E0926E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59CBCC0A-88F8-4438-AAA7-0E49D5E0926E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A70B04A8-262C-496B-B65A-22EC00F3C419}
+	EndGlobalSection
+EndGlobal

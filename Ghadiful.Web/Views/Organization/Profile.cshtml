@@ -1,0 +1,117 @@
+﻿@using Ghadiful.ViewModel.Designation;
+@using Ghadiful.ViewModel.Employees;
+@using Ghadiful.ViewModel.Organizations;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var org = Model as OrganizationViewModel;
+ }
+
+    <!-- Content -->
+<div class="card mt-4">
+    <div class="p-2">
+        <div class="d-flex align-items-start align-items-sm-center gap-4">
+            <img src="@Url.Content(String.Format("~/assets/img/logo/{0}.png",org.Id))"
+                 alt="office-logo"
+                 class="d-block rounded"
+                 height="96"
+                 width="auto"
+                 id="uploadedLogo" onerror=”this.onerror =null;this.src =’https://fallback.url/for/image.jpg" />
+            <div class="button-wrapper">
+                <h1 class="fw-bold pb-3 mb-0 display-6">
+                    @Model.Name
+                </h1>
+                <span class="d-block">@org.Address</span>
+              @*  <span cclass="d-block" style="margin:0">@org.IsActive</span>*@
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-pills flex-column flex-md-row my-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="@Url.Content(String.Format($"/organization/index/{org.Id}"))"><i class="bx bx-user me-1"></i> Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Content(String.Format($"/organization/employee/{org.Id}"))"><i class="bx bx-link-alt me-1"></i> Employees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Content(String.Format($"/organization/group/{org.Id}"))"><i class="bx bx-link-alt me-1"></i> Groups</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Content(String.Format($"/organization/tracker/{org.Id}"))"><i class="bx bx-link-alt me-1"></i> Biometric Trackers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Content(String.Format($"/organization/report/{org.Id}"))"><i class="bx bx-link-alt me-1"></i> Reports</a>
+                    </li>           
+                </ul>
+                <div class="card mb-4">                    
+                    <!-- Account -->
+                    
+                    <hr class="my-0" />
+                    <div class="card-body">
+                        <form id="formAccountSettings" method="POST" onsubmit="return false">
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="Name" class="form-label">Name</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           id="Name"
+                                           name="Name"
+                                           value="@org.Name"
+                                           autofocus />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="Address" class="form-label">Address</label>
+                                    <input class="form-control" type="text" name="Address" id="Address" value="@org.Address" />
+                                </div>                               
+                                
+                                <div class="mb-3 col-md-6">                           
+                            <input class="form-check-input" type="checkbox" name="IsActive" checked="@org.IsActive" />
+                            <label for="IsActive" class="form-label">Active</label>
+                                </div>                        
+                            </div>
+                            <div class="row">
+                        @foreach(var tag in org.Tags)
+                        {
+                            <div class="mb-3 col-md-6">
+                                <label for="@tag.Name" class="form-label">@tag.Name</label>
+                                <input class="form-control" type="text" name="@tag.Name" id="@tag.Name" value="@tag.Value" />
+                            </div>
+                        }
+                    </div>
+                            <div class="mt-2">
+                                <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                                <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /Account -->
+                </div>
+                @*<div class="card">
+                    <h5 class="card-header">Delete Account</h5>
+                    <div class="card-body">
+                        <div class="mb-3 col-12 mb-0">
+                            <div class="alert alert-warning">
+                                <h6 class="alert-heading fw-bold mb-1">Are you sure you want to delete your account?</h6>
+                                <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
+                            </div>
+                        </div>
+                        <form id="formAccountDeactivation" onsubmit="return false">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       name="accountActivation"
+                                       id="accountActivation" />
+                                <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
+                            </div>
+                            <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
+                        </form>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+
+    <!-- / Content -->

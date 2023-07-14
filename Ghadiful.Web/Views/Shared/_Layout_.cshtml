@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ghadiful</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet" />
+
+    <link href="https://cdn.syncfusion.com/ej2/21.1.35/bootstrap5.css" rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="~/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="~/css/demo.css" />
+
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="~/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <link rel="stylesheet" href="~/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Datatable-->
+    <link href="~/lib/datatable/datatables-1.13.4/css/datatables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="~/lib/datatable/responsive-2.4.1/css/responsive.bootstrap5.min.css" rel="stylesheet" />
+
+      <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/21.1.35/fluent.css" />
+
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="/js/config.js"></script>
+     <script src="https://cdn.syncfusion.com/ej2/21.2.3/dist/ej2.min.js" type="text/javascript"></script>
+    <script>
+        ej.base.registerLicense("Mgo+DSMBaFt+QHFqVkNrXVNbdV5dVGpAd0N3RGlcdlR1fUUmHVdTRHRcQlhiTn9SckRmXH5ZdXM=;Mgo+DSMBPh8sVXJ1S0d+X1RPd11dXmJWd1p/THNYflR1fV9DaUwxOX1dQl9gSXtScURiXX5bdXZVR2c=;ORg4AjUWIQA/Gnt2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5Wd0JiWHtfdXFXRWNb;MjA5MjY3N0AzMjMxMmUzMTJlMzMzNWNvLytzR3RFczEyQVNQaldrdWhPd1RoRHdkRnYvRHdtTWN2ZzdvV292b3M9;MjA5MjY3OEAzMjMxMmUzMTJlMzMzNUpsOWJueHdzeE5LQml0emxsZnVzdDNjQVV0ZndqQ0VFSTR6WS9hYXJpalE9;NRAiBiAaIQQuGjN/V0d+XU9Hc1RDX3xKf0x/TGpQb19xflBPallYVBYiSV9jS31Tc0RkWH5acXFQRWldVg==;MjA5MjY4MEAzMjMxMmUzMTJlMzMzNWNWR1EwWGlIdG1oOEUwSmhUKzdiWW9NSG9mdDQyYm5hNmJMc2twL3IrMlk9;MjA5MjY4MUAzMjMxMmUzMTJlMzMzNWRkbGUzYUt3dU1FRHNXMjN1QmEweDFjZ0RUbnU0N0tmcnBjbDFPdUQrTVE9;Mgo+DSMBMAY9C3t2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5Wd0JiWHtfdXFQRGJb;MjA5MjY4M0AzMjMxMmUzMTJlMzMzNVk4bXUvV3hsRTVTc2pJYndPamhvZVZEQVhLd2JEaE9LZS8vOVBlbTFuMjg9;MjA5MjY4NEAzMjMxMmUzMTJlMzMzNUswaTc2TXJKRVZjeTRPUFVPcFR6Uzdld3V3dnNyWEkwTitxclQyNnhMVkk9;MjA5MjY4NUAzMjMxMmUzMTJlMzMzNWNWR1EwWGlIdG1oOEUwSmhUKzdiWW9NSG9mdDQyYm5hNmJMc2twL3IrMlk9");
+    </script>
+
+</head>
+<body>
+    @Html.EJS().ScriptManager()
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <partial name="_Sidebar" />
+            <!-- Layout container -->
+            <div class="layout-page">
+                <!-- Navbar -->
+                <partial name="_Topbar.cshtml" />
+
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="/vendor/libs/popper/popper.js"></script>
+    <script src="~/vendor/js/bootstrap.js"></script>
+    <script src="~/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="~/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- Vendors JS -->
+    <script src="~/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="~/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <ejs-scripts></ejs-scripts>
+</body>
+
+</html>

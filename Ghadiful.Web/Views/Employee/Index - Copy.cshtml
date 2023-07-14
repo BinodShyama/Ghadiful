@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Employee List";
+}
+@*<link href="~/lib/datatable/datatables-1.13.4/css/jquery.datatables.min.css" rel="stylesheet" />*@
+
+<div class="content-wrapper p-4">
+
+    <!-- Content -->
+
+    <div class="flex-grow-1 container-p-y">
+
+
+        <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light">Ghadiful /</span> Employee List
+        </h4>
+
+        <!-- Basic Bootstrap Table -->
+        <div class="card">
+            <h5 class="card-header">Filter Parameters</h5>
+            <div class="card-body">
+                <div class="row col-md-12">
+                    <div class="col-md-2 form-group">
+                        <label>Gender</label>
+                        <select id="gender" class="form-select placement-dropdown">
+                            <option value="">Select Gender....</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>Ward no.</label>
+                        <select id="ward" class="form-select placement-dropdown">
+                            <option value="">Select Organization....</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>Position</label>
+                        <select id="degree" class="form-select placement-dropdown">
+                            <option value="">Select Organization....</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label for="Organization">Organization</label>
+                        <select id="Organization" class="form-select placement-dropdown">
+                            <option value="">Select Organization</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label>Organization</label>
+                        <div class="d-flex justify-content-end">
+                            <select id="university" class="form-select placement-dropdown">
+                                <option value="">Select Organization....</option>
+                            </select>
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-outline-secondary" type="button" onclick="Member.dataTableFilter()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button class="btn btn-outline-warning" type="button" onclick="Member.dataTableClearFilter()"><i class="fa-solid fa-broom"></i></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table-responsive">
+                <table class="table" id="employee-list">
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts{
+    <script src="~/lib/datatable/datatables-1.13.4/js/jquery.datatables.min.js"></script>
+    <script src="~/lib/datatable/datatables-1.13.4/js/datatables.bootstrap5.min.js"></script>
+    <script src="~/js/ghadiful.employeelist.js"></script>
+    <script>
+        $(document).ready(function () {
+            employee.load();
+        });
+    </script>
+
+}

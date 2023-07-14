@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "datatable@2.0.2",
+      "destination": "wwwroot/datatable/"
+    },
+    {
+      "library": "datatables.net@2.1.1",
+      "destination": "wwwroot/lib/datatable/datatables.net/"
+    },
+    {
+      "library": "moment.js@2.29.4",
+      "destination": "wwwroot/js/moment.js/",
+      "files": [
+        "moment.min.js",
+        "moment.js"
+      ]
+    }
+  ]
+}

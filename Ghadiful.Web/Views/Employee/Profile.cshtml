@@ -1,0 +1,191 @@
+﻿@using Ghadiful.ViewModel.Designation;
+@using Ghadiful.ViewModel.Employees;
+@using Ghadiful.ViewModel.Organizations;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var emp = Model as EmployeeViewModel;
+    var orgSelectList = (ViewBag.OrgData as List<OrganizationViewModel>)
+                        .Select(x => new SelectListItem
+                        {
+                            Value = x.Id.ToString(),
+                            Text = x.Name
+                        }).ToList();
+    var designationSelectList = (ViewBag.Designation as List<DesignationViewModel>)
+    .Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Name
+            }).ToList();
+}
+
+
+    <!-- Content -->
+<div class="card mt-4">
+    <div class="p-2">
+        <div class="d-flex align-items-start align-items-sm-center gap-4">
+            <img src="@Url.Content(String.Format("~/assets/img/avatars/{0}.jpg",emp.Id))"
+                 alt="user-avatar"
+                 class="d-block rounded"
+                 height="96"
+                 width="96"
+                 id="uploadedAvatar" />
+            <div class="button-wrapper">
+                <h1 class="fw-bold pb-3 mb-0 display-6">
+                    @Model.Name
+                </h1>
+                <span class="d-block">@emp.Position</span>
+                <span cclass="d-block" style="margin:0">@emp.Organization</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-pills flex-column flex-md-row my-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="@Url.Content(String.Format($"/employee/index/{emp.Id}"))"><i class="bx bx-user me-1"></i> Profile</a>
+                    </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Content(String.Format($"/employee/schedule/{emp.Id}"))"><i class="bx bx-link-alt me-1"></i> Schedule</a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Content(String.Format($"/employee/overtime/{emp.Id}"))"><i class="bx bx-link-alt me-1"></i> Overtime</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Content(String.Format($"/employee/leave/{emp.Id}"))"><i class="bx bx-link-alt me-1"></i> Leave</a>
+            </li>            
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Content(String.Format($"/employee/report/{emp.Id}"))"><i class="bx bx-link-alt me-1"></i> Reports</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="@Url.Content(String.Format($"/employee/history/{emp.Id}"))"><i class="bx bx-bell me-1"></i> Service History</a>
+            </li>
+                </ul>
+                <div class="card mb-4">                    
+                    <!-- Account -->
+                    
+                    <hr class="my-0" />
+                    <div class="card-body">
+                        <form id="formAccountSettings" method="POST" onsubmit="return false">
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="Name" class="form-label">Name</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           id="Name"
+                                           name="Name"
+                                           value="@emp.Name"
+                                           autofocus />
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="lastName" class="form-label">Official Number</label>
+                                    <input class="form-control" type="text" name="OfficialNumber" id="OfficialNumber" value="@emp.OfficialNumber" />
+                                </div>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                            <div class="input-group input-group-merge">
+                                <span class="input-group-text">NP (+977)</span>
+                                <input type="text"
+                                       id="phoneNumber"
+                                       name="phoneNumber"
+                                       class="form-control"
+                                       placeholder=""
+                                       value="@emp.PhoneNumber" />
+                            </div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="organization" class="form-label">Organization</label>
+                            <select class="form-select" asp-for="@emp.LastOrganizationId" asp-items="@orgSelectList"></select>
+                            @*<input type="text"
+                                   class="form-control"
+                                   id="organization"
+                                   name="organization"
+                                   value="@emp.Organization" />*@
+                        </div>
+                                <div class="mb-3 col-md-6">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           id="email"
+                                           name="email"
+                                           value="@emp.Email"
+                                           placeholder="" />
+                                </div>
+                               
+                               
+                                <div class="mb-3 col-md-6">
+                                    <label for="Designation" class="form-label">Designation</label>
+                                    <select class="form-select" asp-for="@emp.LastPositionId" asp-items="@designationSelectList"></select>
+
+                                    @*<input type="text" class="form-control" id="Designation" name="Designation" placeholder="Designation" value="@emp.Position" />*@
+                                </div>                              
+                                <div class="mb-3 col-md-6">
+                                    <label for="biometricEnrollNumber" class="form-label">Biometric Enroll Number</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="biometricEnrollNumber"
+                                           name="biometricEnrollNumber"
+                                           placeholder=""
+                                           value="@emp.DeviceEnrollNumber" readonly
+                                           maxlength="10" />
+                                </div>
+                                
+                                <div class="mb-3 col-md-6">
+                                    <label for="Status" class="form-label">Status</label>
+                            <select id="Status" class="select2 form-select" asp-for="@emp.Status">
+                                        <option value="">Select Status</option>
+                                        <option value="Working">Working</option>
+                                        <option value="EndOfContract">EndOfContract</option>
+                                        <option value="Resigned">Resigned</option>
+                                        <option value="Terminated">Terminated</option>
+                                        <option value="Suspended">Suspended</option>
+                                        <option value="Retired">Retired</option>
+                                        <option value="Pension">Pension</option>
+                                        <option value="Demised">Demised</option>
+                                    </select>
+                                </div>                        
+                            </div>
+                            <div class="row">
+                        @foreach(var tag in emp.Tags)
+                        {
+                            <div class="mb-3 col-md-6">
+                                <label for="@tag.Name" class="form-label">@tag.Name</label>
+                                <input class="form-control" type="text" name="@tag.Name" id="@tag.Name" value="@tag.Value" />
+                            </div>
+                        }
+                    </div>
+                            <div class="mt-2">
+                                <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                                <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /Account -->
+                </div>
+                @*<div class="card">
+                    <h5 class="card-header">Delete Account</h5>
+                    <div class="card-body">
+                        <div class="mb-3 col-12 mb-0">
+                            <div class="alert alert-warning">
+                                <h6 class="alert-heading fw-bold mb-1">Are you sure you want to delete your account?</h6>
+                                <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
+                            </div>
+                        </div>
+                        <form id="formAccountDeactivation" onsubmit="return false">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       name="accountActivation"
+                                       id="accountActivation" />
+                                <label class="form-check-label" for="accountActivation">I confirm my account deactivation</label>
+                            </div>
+                            <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
+                        </form>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+
+    <!-- / Content -->

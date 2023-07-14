@@ -1,0 +1,52 @@
+﻿@using Ghadiful.ViewModel.Organizations
+@using Newtonsoft.Json;
+@{
+    ViewData["Title"] = "Organization";
+}
+@model List<OrganizationViewModel>
+@*<link href="~/css/tree.css" rel="stylesheet" />*@
+@*<link href="~/lib/tree-select/treeselectjs.css" rel="stylesheet" />*@
+
+@{
+    foreach (var item in Model)
+    {
+
+        if (Model.Any(c => c.ParentId == item.Id))
+        {
+            item.HasChild = true;
+        }
+    }
+}
+
+    <h4 class="fw-bold py-3 mb-0">
+        Organization 
+    </h4>
+
+    <div class="card">       
+        <div>
+            <div id="container">
+                <div style="margin: 20px; padding: 5px; height: auto;">
+                    <div class="treeviewfilter">
+                        <!-- TextBox Element -->
+                        <input id="mask" type="text">
+                        <!-- TreeView Element -->
+                        <div id="treeView"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        var orgData = @Html.Raw(JsonConvert.SerializeObject( Model));
+        $.each(orgData, function (i, d) {
+            if (d.ParentId == null || d.ParentId == undefined) {
+                d.expanded = true;
+            } else {
+                d.expanded = false;
+            }
+        });
+    </script>
+    <script src="~/js/treeview.js"></script>
+    }

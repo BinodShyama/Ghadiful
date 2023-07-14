@@ -1,0 +1,44 @@
+﻿@{
+    DateTime timeOfDayGreeting = DateTime.Now;
+    string greeting = "";
+    if (timeOfDayGreeting.Hour >= 5 && timeOfDayGreeting.Hour < 12)
+    {
+        greeting = "Good morning!";
+    }
+    else if (timeOfDayGreeting.Hour >= 12 && timeOfDayGreeting.Hour < 16)
+    {
+        greeting = "Good afternoon!";
+    }
+    else
+    {
+        greeting = "Good night!";
+    }
+}
+<div class="content-wrapper">
+    <!-- Content -->
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row">
+            <div class="col-lg-8 mb-4 order-0">
+                <div class="card">
+                    <div class="d-flex align-items-end row">
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <h5 class="card-title text-primary">@greeting @User.Identity.Name</h5>
+                                <p class="mb-4">
+                                    You checked in <span class="fw-bold">10:15 AM</span> today. (15 mins late)
+                                </p>
+
+                                <a href="/checkin/thismonth" class="btn btn-sm btn-primary">See all your check-ins</a>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>     
+        </div>     
+    </div>
+    <!-- / Content -->
+
+
+    <div class="content-backdrop fade"></div>
+</div>

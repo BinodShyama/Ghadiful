@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>treeselect</title>
+        <script src="https://cdn.jsdelivr.net/npm/treeselectjs@0.8.6/dist/treeselectjs.umd.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/treeselectjs@0.8.6/dist/treeselectjs.css" />
+    
+ 
+    </head>
+    <body>
+<div class="treeselect-demo" style="width: 400px;"></div>
+
+    </body>
+
+    <script>
+      const options = [
+    {
+      name: 'England',
+      value: 1,
+      children: [
+        {
+          name: 'London',
+          value: 2,
+          children: [
+            {
+              name: 'Chelsea',
+              value: 3,
+              children: []
+            },
+            {
+              name: 'West End',
+              value: 4,
+              children: []
+            }
+          ]
+        },
+        {
+          name: 'Brighton',
+          value: 5,
+          children: []
+        }
+      ]
+    },
+    {
+      name: 'France',
+      value: 6,
+      children: [
+        {
+          name: 'Paris',
+          value: 7,
+          children: []
+        },
+        {
+          name: 'Lyon',
+          value: 8,
+          children: []
+        }
+      ]
+    }
+  ]
+  
+
+
+  
+  const domElement = document.querySelector('.treeselect-demo')
+  const treeselect = new Treeselect({
+    parentHtmlContainer: domElement,
+    value: [4, 7, 8],
+    options: options,   
+  })
+  
+  treeselect.srcElement.addEventListener('input', (e) => {
+    console.log('Selected value:', e.detail)
+  })
+
+           
+            
+          </script>
+</html>
+

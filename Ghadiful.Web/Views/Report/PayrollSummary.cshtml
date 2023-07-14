@@ -1,0 +1,162 @@
+﻿@using Ghadiful.ViewModel.Employees;
+@using Ghadiful.ViewModel.Organizations;
+@using Ghadiful.ViewModel.Reports
+@using Newtonsoft.Json;
+@using Syncfusion.EJ2
+@{
+    ViewData["Title"] = "Payroll Report (Summary)";
+    List<OrganizationViewModel> orgData = ViewBag.OrgData as List<OrganizationViewModel>;
+}
+@model List<PayrollSummaryViewModel>
+@{
+    foreach (var item in orgData)
+    {
+        if (orgData.Any(c => c.ParentId == item.Id))
+        {
+            item.HasChild = true;
+        }
+    }
+}
+
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="fw-bold py-3 mb-0 display-6">
+        @ViewBag.Title
+    </h1>   
+</div>
+
+<div style="display:flex; gap:5px;align-items: flex-end; margin-bottom: -1px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #dee2e6;;">
+    <div style="width:120px;">
+        <label>Start Date</label>
+        <div class="e-input-group">
+            <input type="date" class="e-input" id="startDate" />
+        </div>
+    </div><div style="width:120px;">
+        <label>End Date</label>
+        <div class="e-input-group">
+            <input type="date" class="e-input" id="endDate" />
+        </div>
+    </div>
+    <div style="width: 300px; height: auto; position:relative">
+        <div class="treeviewfilter">
+            <label>Organization</label>
+            <!-- TextBox Element -->
+            <input id="mask" type="text" value="@ViewBag.Org">
+            <!-- TreeView Element -->
+            <div id="treeView" style="display:none;     position: absolute;
+    left: 0px;
+    top: 56px;
+    z-index: 50;
+    background: white;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    max-height: 300px;
+    overflow: auto;"></div>
+        </div>
+    </div>
+    <div style="flex:1;">
+        <label>Employee</label>
+        <div class="e-input-group">
+            <input id="empId" type="search"
+                   class="e-input" style="width:100%;"
+                   placeholder="Search..."
+                   aria-label="Search..." />
+        </div>
+    </div>
+    <input type="button" class="btn btn-primary btn-sm" value="Show Report" onclick="update();" />
+</div>
+<ejs-grid id="mainGrid" dataSource="@Model" allowResizing="true" allowPaging="true" allowSorting="true" height="400" rowHeight="20">
+    <e-grid-pagesettings pageSize="35"></e-grid-pagesettings>
+    <e-grid-filtersettings type="Menu"></e-grid-filtersettings>
+    <e-grid-loadingIndicator indicatorType="Shimmer"></e-grid-loadingIndicator>
+    <e-grid-columns>        
+        <e-grid-column field="Name" headerText="Name" width="120"></e-grid-column>
+        <e-grid-column field="EmployeePost" headerText="Post" width="100"></e-grid-column>
+        <e-grid-column field="EmployeeLevel" headerText="Level" width="50"></e-grid-column>
+        <e-grid-column field="EmployeeOffice" headerText="Office" width="150"></e-grid-column>
+        <e-grid-column field="TotalDays" headerText="Total" width="60"></e-grid-column>
+        <e-grid-column field="PresentDays" headerText="Present" width="60"></e-grid-column>
+        <e-grid-column field="AbsentDays" headerText="Absent" width="60"></e-grid-column>
+        <e-grid-column field="DayOffCount" headerText="DayOff" width="60"></e-grid-column>
+        <e-grid-column field="LeaveCount" headerText="Leave" width="60"></e-grid-column>
+        <e-grid-column field="HolidayCount" headerText="Holiday" width="60"></e-grid-column>
+    </e-grid-columns>
+</ejs-grid>
+
+@section Scripts{
+    <script src="~/js/ghadiful.reports.js"></script>
+    <script type="text/javascript">
+        let payroll = new Payroll();
+        payroll.StartDate = new Date('@ViewBag.StartDate');
+        payroll.EndDate = new Date('@ViewBag.EndDate');
+        payroll.InitilizeComponents();
+        var orgData = @Html.Raw(JsonConvert.SerializeObject(orgData));
+        $.each(orgData, function (i, d) {
+            if (d.ParentId == null || d.ParentId == undefined) {
+                d.expanded = true;
+            } else {
+                d.expanded = false;
+            }
+        });
+        function update() {
+            let startDate = payroll.StartDate.toISOString();
+            let endDate = payroll.EndDate.toISOString();
+            $.ajax({
+                type: "GET",
+                url: `/report/apicheckin?startDate=${startDate}&endDate=${endDate}&orgId=${orgId}&empId=${empId}`,
+                datatype: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    var gridObj = document.getElementById('mainGrid').ej2_instances[0];
+                    gridObj.changeDataSource(result);
+                    //gridObj.refreshColumns();
+                },
+                error: function (args) {
+                    alert('error occurred');
+                }
+            });
+
+        }
+    </script>
+    <script src="~/js/treeview.js"></script>
+    <script type="text/javascript">
+        const empAutoComplete = new autoComplete({
+            selector: "#empId",
+            placeHolder: "Search an employee",
+
+            data: {
+                src: async (query) => {
+                    try {
+                        if (query !== undefined && query.replace(/ /g, "").length >= 3) {
+                            const source = await fetch(`/employee/search?query=${query}`);
+                            const data = await source.json();
+                            return data;
+                        }
+                    } catch (error) {
+                        return error;
+                    }
+                },
+                keys: ["name", "deviceenrollnumber"],
+                cache: false,
+            },
+            resultItem: {
+                highlight: false
+            },
+            events: {
+                input: {
+                    selection: (event) => {
+                        const selectedItem = event.detail.selection.value;
+                        empId = selectedItem.id;
+                        $("#empId").val(selectedItem.name);
+                        orgId = 0;
+                        // reset organization selection
+                        var maskObj = document.getElementById('mask').ej2_instances[0];
+                        maskObj.value = '';
+                    }
+                }
+            }
+        });
+    </script>
+    }

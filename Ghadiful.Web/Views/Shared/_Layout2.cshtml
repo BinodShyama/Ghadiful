@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GridSample</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/20.1.55/fluent.css" />
+    <script src="https://cdn.syncfusion.com/ej2/20.1.55/dist/ej2.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">GridSample</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - GridSample - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    <ejs-scripts></ejs-scripts>
+    <script>
+        ej.base.registerLicense("Mgo+DSMBaFt+QHFqVkNrXVNbdV5dVGpAd0N3RGlcdlR1fUUmHVdTRHRcQlhiTn9SckRmXH5ZdXM=;Mgo+DSMBPh8sVXJ1S0d+X1RPd11dXmJWd1p/THNYflR1fV9DaUwxOX1dQl9gSXtScURiXX5bdXZVR2c=;ORg4AjUWIQA/Gnt2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5Wd0JiWHtfdXFXRWNb;MjA5MjY3N0AzMjMxMmUzMTJlMzMzNWNvLytzR3RFczEyQVNQaldrdWhPd1RoRHdkRnYvRHdtTWN2ZzdvV292b3M9;MjA5MjY3OEAzMjMxMmUzMTJlMzMzNUpsOWJueHdzeE5LQml0emxsZnVzdDNjQVV0ZndqQ0VFSTR6WS9hYXJpalE9;NRAiBiAaIQQuGjN/V0d+XU9Hc1RDX3xKf0x/TGpQb19xflBPallYVBYiSV9jS31Tc0RkWH5acXFQRWldVg==;MjA5MjY4MEAzMjMxMmUzMTJlMzMzNWNWR1EwWGlIdG1oOEUwSmhUKzdiWW9NSG9mdDQyYm5hNmJMc2twL3IrMlk9;MjA5MjY4MUAzMjMxMmUzMTJlMzMzNWRkbGUzYUt3dU1FRHNXMjN1QmEweDFjZ0RUbnU0N0tmcnBjbDFPdUQrTVE9;Mgo+DSMBMAY9C3t2VFhhQlJBfV5AQmBIYVp/TGpJfl96cVxMZVVBJAtUQF1hSn5Wd0JiWHtfdXFQRGJb;MjA5MjY4M0AzMjMxMmUzMTJlMzMzNVk4bXUvV3hsRTVTc2pJYndPamhvZVZEQVhLd2JEaE9LZS8vOVBlbTFuMjg9;MjA5MjY4NEAzMjMxMmUzMTJlMzMzNUswaTc2TXJKRVZjeTRPUFVPcFR6Uzdld3V3dnNyWEkwTitxclQyNnhMVkk9;MjA5MjY4NUAzMjMxMmUzMTJlMzMzNWNWR1EwWGlIdG1oOEUwSmhUKzdiWW9NSG9mdDQyYm5hNmJMc2twL3IrMlk9");
+    </script>
+</body>
+</html>

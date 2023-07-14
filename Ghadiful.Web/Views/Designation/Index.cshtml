@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h4 class="fw-bold py-3 mb-0">
+    Designation
+</h4>
+<ejs-grid id="mainGrid" dataSource="@Model" allowFiltering="true" toolbar="@( new List<string>() { "ExcelExport", "PdfExport" })" allowExcelExport="true" allowPdfExport="true" , allowResizing="true" allowPaging="true" allowSorting="true" height="400" rowHeight="20">
+    <e-grid-pagesettings pageSize="20"></e-grid-pagesettings>
+    <e-grid-filtersettings type="Menu"></e-grid-filtersettings>
+    <e-grid-loadingIndicator indicatorType="Shimmer"></e-grid-loadingIndicator>    
+    <e-grid-columns>      
+        <e-grid-column field="Name" headerText="Designation" width="150"></e-grid-column>
+        <e-grid-column field="Level" headerText="Level" type="number" width="80"></e-grid-column>    
+    </e-grid-columns>
+</ejs-grid>

@@ -1,0 +1,139 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="d-flex justify-content-between align-items-center">
+    <h1 class="fw-bold py-3 mb-0 display-6">
+      Settings
+    </h1>
+</div>
+<div style="display:grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap:20px;">
+    
+        <a class="card card-body text-center text-black" href="/Organization/Index">
+        <span class="material-symbols-outlined">
+            corporate_fare
+        </span>
+            <div data-i18n="Organization">Organization</div>
+        </a>
+   
+    
+        <a class="card card-body text-center text-black" href="/Employee/Index"
+           target="_blank"
+           >
+           <span class="material-symbols-outlined">
+account_circle
+</span>
+            <div data-i18n="Employee">Employee</div>
+        </a>
+
+
+    <a class="card card-body text-center text-black" href="/Designation/Index"
+           target="_blank"
+           >
+        <span class="material-symbols-outlined">
+            badge
+        </span>
+            <div data-i18n="Designation">Designation</div>
+        </a>
+    <a class="card card-body text-center text-black" href="/Group/Index"
+       target="_blank">
+        <span class="material-symbols-outlined">
+            group
+        </span>
+        <div data-i18n="Groups">Groups</div>
+    </a>
+  
+    
+        <a class="card card-body text-center text-black" href="/Employee/Index"
+           target="_blank"
+           >
+        <span class="material-symbols-outlined">
+            fingerprint
+        </span>
+            <div data-i18n="Biometric Tracker">Biometric Tracker</div>
+        </a>
+   
+    
+        <a class="card card-body text-center text-black" href="/shift"
+           target="_blank"
+           >
+        <span class="material-symbols-outlined">
+            calendar_month
+        </span>
+            <div data-i18n="Shift">Shift</div>
+        </a>
+   
+    
+        <a class="card card-body text-center text-black" href="/holiday"
+           target="_blank"
+           >
+        <span class="material-symbols-outlined">
+            celebration
+        </span>
+            <div data-i18n="Holiday">Holiday</div>
+        </a>
+   
+    <!-- Leave -->
+    
+        <a class="card card-body text-center text-black" href="javascript:void(0)" class="menu-link menu-toggle">
+        <span class="material-symbols-outlined">
+            event_busy
+        </span>
+            <div data-i18n="Leave">Leave</div>
+        </a>
+        <ul class="d-none">
+            
+                <a class="card card-body text-center text-black" href="/leave/taken" >
+                    <div data-i18n="Taken">Leave Type</div>
+                </a>
+           
+            
+                <a class="card card-body text-center text-black" href="/leave/takenpolicy" >
+                    <div data-i18n="Taken Policy">Taken Policy</div>
+                </a>
+           
+            
+                <a class="card card-body text-center text-black" href="/leave/earningpolicy" >
+                    <div data-i18n="Earning Policy">Earning Policy</div>
+                </a>
+           
+            
+                <a class="card card-body text-center text-black" href="/leave/closingpolicy" >
+                    <div data-i18n="Badges">Year Closing Policy</div>
+                </a>
+           
+        </ul>
+   
+    <!-- Access Management -->
+    
+        <a class="card card-body text-center text-black" href="javascript:void(0)" class="menu-link menu-toggle">
+        <span class="material-symbols-outlined">
+            vpn_key
+        </span>
+            <div data-i18n="Access Management">Access Management</div>
+        </a>
+        <ul class="d-none">
+            
+                <a class="card card-body text-center text-black" href="/role/permission" >
+                    <div data-i18n="Role & Permission">Role &amp; Permission</div>
+                </a>
+           
+            
+                <a class="card card-body text-center text-black" href="/user/access" >
+                    <div data-i18n="User Access">User Access</div>
+                </a>
+           
+        </ul>
+   
+    
+        <a class="card card-body text-center text-black" href="/Employee/Index"
+           target="_blank"
+           >
+        <span class="material-symbols-outlined">
+            settings
+        </span>
+            <div data-i18n="Global Settings">Global Settings</div>
+        </a>
+   
+</div>
